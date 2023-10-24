@@ -1,10 +1,10 @@
 import allure
-from selene import browser, have
+from selene import be, browser, have
 
 
 class Index:
     @allure.step('Открываем главную страницу')
-    def open(self):
+    def open_main_page(self):
         browser.open('/')
 
     @allure.step('Открываем окно авторизации')
@@ -15,12 +15,68 @@ class Index:
     def click_phones(self):
         browser.all('.list-group>a').element_by(have.text('Phone')).click()
 
+    @allure.step('Кликаем на кнопку Laptops')
+    def click_laptops(self):
+        browser.all('.list-group>a').element_by(have.text('Laptops')).click()
+
+    @allure.step('Кликаем на кнопку Monitors')
+    def click_monitors(self):
+        browser.all('.list-group>a').element_by(have.text('Monitors')).click()
+
     @allure.step('Проверяем регистрацию пользователя')
     def should_have_registered(self, username):
         browser.element('#nameofuser').should(
             have.exact_text(f'Welcome {username}')
         )
 
-    @allure.step('Проверяем что "Samsung galaxy s6" есть в списке')
-    def should_have_phones(self):
-        browser.element('#tbodyid').should(have.text('Samsung galaxy s6'))
+    @allure.step('Проверяем лейбл')
+    def should_label_be_clickable_and_have_text(self):
+        browser.element('nav #nava').should(be.clickable)
+        browser.element('nav #nava').should(have.text('PRODUCT STORE'))
+
+    @allure.step('Проверяем панель навигации')
+    def should_be_navbar_example(self):
+        browser.all('[id=navbarExample] li').should(
+            have.exact_texts(
+                'Home\n(current)',
+                'Contact',
+                'About us',
+                'Cart',
+                'Log in',
+                '',
+                '',
+                'Sign up'
+            )
+        )
+
+    @allure.step('Проверяем надпись CATEGORIES')
+    def should_categories_be_clickable(self):
+        browser.element('.list-group #cat').should(
+            have.exact_text('CATEGORIES')
+        )
+        browser.element('.list-group #cat').should(be.clickable)
+
+    @allure.step('Проверяем что "{value}" есть в списке')
+    def should_have_gadget(self, value):
+        browser.element('#tbodyid').should(have.text(value))
+
+    @allure.step('Проверяем подвал сайта')
+    def should_footer_have_text(self):
+        browser.all('div#footc h4').should(
+            have.exact_texts(
+                'About Us',
+                'Get in Touch',
+                'PRODUCT STORE'
+            )
+        )
+        browser.all('div#footc p').should(
+            have.exact_texts(
+                ('We believe performance needs to be validated'
+                 ' at every stage of the software development cycle'
+                 ' and our open source compatible, massively scalable'
+                 ' platform makes that a reality.'),
+                'Address: 2390 El Camino Real',
+                'Phone: +440 123456',
+                'Email: demo@blazemeter.com'
+            )
+        )

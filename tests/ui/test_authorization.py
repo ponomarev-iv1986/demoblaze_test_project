@@ -1,4 +1,5 @@
 import allure
+from allure_commons.types import Severity
 
 from config import settings
 from demoblaze_test_project.pages.index import Index
@@ -8,8 +9,13 @@ index = Index()
 login_form = LoginForm()
 
 
+@allure.label('owner', 'ponomarev-iv1986')
+@allure.tag('UI')
+@allure.tag('Authorization')
+@allure.severity(Severity.BLOCKER)
+@allure.title('Проверяем авторизацию пользователя')
 def test_login():
-    index.open()
+    index.open_main_page()
 
     index.open_login_window()
     with allure.step('Заполняем данные пользователя'):
