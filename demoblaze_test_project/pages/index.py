@@ -9,7 +9,7 @@ class Index:
 
     @allure.step('Открываем окно авторизации')
     def open_login_window(self):
-        browser.element('#login2').click()
+        browser.element('#login2').with_(click_by_js=True).click()
 
     @allure.step('Кликаем на кнопку Phones')
     def click_phones(self):

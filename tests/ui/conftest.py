@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 import config
+from demoblaze_test_project import attach
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -36,5 +37,11 @@ def browser_management():
         browser.config.driver = driver
 
     yield
+
+    attach.add_screenshot(browser)
+    attach.add_logs(browser)
+    attach.add_html(browser)
+    if config.settings.ENVIRONMENT == 'remote':
+        attach.add_video(browser)
 
     browser.quit()
