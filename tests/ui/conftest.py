@@ -1,10 +1,11 @@
 import pytest
+import requests
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 import config
-from demoblaze_test_project import attach
+from demoblaze_test_project.utils import attach
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -45,3 +46,16 @@ def browser_management():
         attach.add_video(browser)
 
     browser.quit()
+
+
+@pytest.fixture(scope='function')
+def api_token():
+    payload = {
+        'username': config.settings.USER_LOGIN,
+        'password': config.settings.API_PASSWORD
+    }
+    response = requests.post(
+        'https://api.demoblaze.com/login',
+        json=payload
+    )
+    return response.text.split()[1][:-2] + 'z'

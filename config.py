@@ -12,6 +12,7 @@ class Settings(pydantic_settings.BaseSettings):
     ENVIRONMENT: EnvType = 'local'
     USER_LOGIN: str
     USER_PASSWORD: str
+    API_PASSWORD: str
     SELENOID_LOGIN: str
     SELENOID_PASSWORD: str
 
