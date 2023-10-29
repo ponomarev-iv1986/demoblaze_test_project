@@ -58,4 +58,4 @@ def api_token():
         'https://api.demoblaze.com/login',
         json=payload
     )
-    return response.text.split()[1][:-2] + 'z'
+    return response.text.split()[1][:-1]
