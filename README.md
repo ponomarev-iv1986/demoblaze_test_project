@@ -22,11 +22,11 @@
 ![This is an image](design/images/Allure_report_2.png)
 
 ### Полная статистика по тестовым прогонам, включая ручные тесты, хранятся в <a target="_blank" href="https://allure.autotests.cloud/project/3738/dashboards">Allure TestOps</a>.
-#### * Главный дашборд Allure TestOps:*
+#### *Главный дашборд Allure TestOps:*
 ![This is an image](design/images/Allure_testops_dashboards.png)
-#### * Общий список автоматизированных и ручных тест-кейсов проекта:*
+#### *Общий список автоматизированных и ручных тест-кейсов проекта:*
 ![This is an image](design/images/Allure_testops_test_cases.png)
-#### * Запуски автоматизированных и ручных тестов проекта:*
+#### *Запуски автоматизированных и ручных тестов проекта:*
 ![This is an image](design/images/Allure_testops_launches.png)
 
 ### Тест-кейсы проекта и результаты тестовых прогонов интегрированы с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-925">Atlassian Jira</a>.
