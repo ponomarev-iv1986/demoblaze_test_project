@@ -64,10 +64,10 @@ pytest .
 
 ![This is an image](design/images/start_job.png)
 
-## После прохождения автотестов можно зайти в Allure Report и посмотреть отчет по тестовому прогону:
+## После прохождения автотестов можно зайти в <a target="_blank" href="https://jenkins.autotests.cloud/job/Ponomarev-IV-Demoblaze_Test/5/allure/#">Allure Report</a> и посмотреть отчет по тестовому прогону.
 ![This is an image](design/images/allure_report_1.png)
 
-### А так же подробно посмотреть результат прохождения каждого отдельного теста:
+### Так же есть возможность подробно посмотреть результат прохождения каждого отдельного теста, проанализировать шаги, логи теста, просмотреть скриншоты и видео прохождения теста.
 ![This is an image](design/images/allure_report_2.png)
 
 ## Полная статистика по тестовым прогонам, включая ручные тесты, хранятся в <a target="_blank" href="https://allure.autotests.cloud/project/3738/dashboards">Allure TestOps</a>.
@@ -78,7 +78,7 @@ pytest .
 ### *Запуски автоматизированных и ручных тестов проекта:*
 ![This is an image](design/images/allure_testops_launches.png)
 
-## Тест-кейсы проекта и результаты тестовых прогонов интегрированы с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-925">Atlassian Jira</a>.
+## Тест-кейсы проекта и результаты тестовых прогонов интегрированы с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-925">Atlassian Jira</a> и прилинкованы к соответстующей задаче.
 ![This is an image](design/images/jira.png)
 
 ## Для мгновенного получения результатов о тестировании настроено автоматическое оповещение через Telegram.
