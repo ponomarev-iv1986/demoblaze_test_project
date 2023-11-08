@@ -1,3 +1,4 @@
+import allure
 import pytest
 import requests
 from selene import browser
@@ -12,8 +13,8 @@ from demoblaze_test_project.utils import attach
 def browser_management():
     browser.config.base_url = 'https://www.demoblaze.com'
     if config.settings.ENVIRONMENT == 'local':
-        browser.config.window_width = 1400
-        browser.config.window_height = 800
+        browser.config.window_width = 1920
+        browser.config.window_height = 1080
         options = webdriver.ChromeOptions()
         browser.config.driver_options = options
     else:
@@ -54,8 +55,10 @@ def api_token():
         'username': config.settings.USER_LOGIN,
         'password': config.settings.API_PASSWORD
     }
-    response = requests.post(
-        'https://api.demoblaze.com/login',
-        json=payload
-    )
-    return response.text.split()[1][:-1]
+    with allure.step('Получаем токен авторизации'):
+        response = requests.post(
+            'https://api.demoblaze.com/login',
+            json=payload
+        )
+
+    yield response.text.split()[1][:-1]

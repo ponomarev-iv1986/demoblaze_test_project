@@ -2,7 +2,7 @@ import allure
 from selene import be, browser, have
 
 
-class Index:
+class MainPage:
     @allure.step('Открываем главную страницу')
     def open_main_page(self):
         browser.open('/')
@@ -22,6 +22,12 @@ class Index:
     @allure.step('Кликаем на кнопку Monitors')
     def click_monitors(self):
         browser.all('.list-group>a').element_by(have.text('Monitors')).click()
+
+    @allure.step('Добавляем токен авторизации в cookie браузера')
+    def token_to_cookie(self, token):
+        browser.driver.add_cookie(
+            {'name': 'tokenp_', 'value': token}
+        )
 
     @allure.step('Проверяем регистрацию пользователя')
     def should_have_registered(self, username):
